@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import fakeAuth from '../fakeAuth';
-import PropTypes from 'prop-types';
 
 const mockUser = {
   username: 'cat',
@@ -12,7 +11,8 @@ export default class Login extends Component {
   state = {
     redirectToReferrer: false,
     username: '',
-    password: ''
+    password: '',
+    error: false
   };
 
   login = (e) => {
@@ -22,9 +22,9 @@ export default class Login extends Component {
       && mockUser.password === this.state.password
     ) {
       fakeAuth.authenticate(() => {
-        this.setState(() => ({ redirectToReferrer: true }));
+        this.setState(() => ({ redirectToReferrer: true, error: false }));
       });
-    }
+    } else this.setState({ error: true });
   };
 
   handleChange = (e) => {
@@ -68,6 +68,9 @@ export default class Login extends Component {
             onChange={this.handleChange}
           />
         </div>
+        {this.state.error && (
+          <p style={{ color: 'red' }}>Wrong password or username!</p>
+        )}
         <button onClick={this.login} className="button-primary">
           Log In
         </button>
