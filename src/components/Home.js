@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = () => (
+const Home = ({ username }) => (
   <div>
-    <h1>Welcome User!</h1>
+    <h1>React Auth Exercise</h1>
+    <h2>Welcome {username}!</h2>
     <p>Where do you want to go?</p>
     <div className="row">
       <Link to="/public">

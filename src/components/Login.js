@@ -23,6 +23,7 @@ export default class Login extends Component {
     ) {
       fakeAuth.authenticate(() => {
         this.setState(() => ({ redirectToReferrer: true, error: false }));
+        this.props.saveUsername(this.state.username);
       });
     } else this.setState({ error: true });
   };

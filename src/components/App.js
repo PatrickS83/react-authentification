@@ -9,7 +9,11 @@ import Authbutton from './Authbutton';
 import fakeAuth from '../fakeAuth';
 
 class App extends Component {
-  state = {};
+  state = { username: 'User' };
+
+  saveUsername = (username) => {
+    this.setState({ username });
+  };
 
   render() {
     return (
@@ -19,11 +23,22 @@ class App extends Component {
             <Link to="/" className="two columns">
               <p>Home</p>
             </Link>
-            <Authbutton />
+            <Authbutton
+              username={this.state.username}
+              saveUsername={this.saveUsername}
+            />
           </div>
-          <h1>React Auth Exercise</h1>
-          <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
+          <Route
+            exact
+            path="/"
+            render={props => <Home {...props} username={this.state.username} />}
+          />
+          <Route
+            path="/login"
+            render={props => (
+              <Login {...props} saveUsername={this.saveUsername} />
+            )}
+          />
           <Route path="/public" component={Public} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
         </div>
