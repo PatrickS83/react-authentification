@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Home from './Home';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Public from './Public';
+import PrivateRoute from './PrivateRoute';
 import fakeAuth from '../fakeAuth';
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/public" component={Public} />
-          <Route path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
         </div>
       </Router>
     );
