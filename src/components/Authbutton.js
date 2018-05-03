@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import fakeAuth from '../fakeAuth';
 
 const Authbutton = ({ history, username, saveUsername }) => (fakeAuth.isAuthenticated ? (
@@ -21,5 +22,11 @@ const Authbutton = ({ history, username, saveUsername }) => (fakeAuth.isAuthenti
   ) : (
     <p>You are not logged in!</p>
   ));
+
+Authbutton.propTypes = {
+  username: PropTypes.string.isRequired,
+  saveUsername: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
+};
 
 export default withRouter(Authbutton);

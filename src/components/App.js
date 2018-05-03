@@ -6,7 +6,6 @@ import Dashboard from './Dashboard';
 import Public from './Public';
 import PrivateRoute from './PrivateRoute';
 import Authbutton from './Authbutton';
-import fakeAuth from '../fakeAuth';
 
 class App extends Component {
   state = { username: 'User' };

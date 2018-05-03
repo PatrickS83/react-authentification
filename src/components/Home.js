@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Home = ({ username }) => (
   <div>
@@ -11,12 +12,19 @@ const Home = ({ username }) => (
         <button className="button-primary four columns">Public Page</button>
       </Link>
       <Link to="/dashboard">
-        <button className="button-primary four columns">
+        <button
+          style={{ marginLeft: '15px' }}
+          className="button-primary four columns"
+        >
           Protected Dashboard
         </button>
       </Link>
     </div>
   </div>
 );
+
+Home.propTypes = {
+  username: PropTypes.string.isRequired
+};
 
 export default Home;

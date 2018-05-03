@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import fakeAuth from '../fakeAuth';
 
 const mockUser = {
@@ -8,6 +9,11 @@ const mockUser = {
 };
 
 export default class Login extends Component {
+  static propTypes = {
+    location: PropTypes.object.isRequired,
+    saveUsername: PropTypes.func.isRequired
+  };
+
   state = {
     redirectToReferrer: false,
     username: '',
