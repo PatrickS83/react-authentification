@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import fakeAuth from '../fakeAuth';
 
 const mockUser = {
-  username: 'cat',
+  username: 'BeerCat',
   password: 'test'
 };
 

@@ -6,6 +6,7 @@ const Authbutton = ({ history, username, saveUsername }) => (fakeAuth.isAuthenti
     <p>
       Welcome {username}!
       <button
+        style={{ marginLeft: "15px" }}
         className="button-primary"
         onClick={() => {
           fakeAuth.signout(() => {
